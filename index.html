@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8fc" />
+    <link rel="manifest" href="manifest.json" />
+    <title>GlobeChat — Worldwide conversations</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="GlobeChat home">
+          <span class="brand-mark" aria-hidden="true">◎</span>
+          <span>globe<span class="brand-accent">chat</span></span>
+        </a>
+        <div class="topbar-right">
+          <span class="global-label"><span class="online-dot"></span> Connecting the world</span>
+          <button class="install-button" id="installButton" type="button">Install app</button>
+          <button class="install-button" id="shareButton" type="button">Share app</button>
+          <button class="install-button" id="reelsButton" type="button">Reels</button>
+          <button class="profile-button" type="button" aria-label="Your profile">Y</button>
+        </div>
+      </header>
+
+      <section class="chat-layout" aria-label="Worldwide chat">
+        <aside class="inbox" id="inbox" aria-label="Your conversations">
+          <div class="inbox-heading">
+            <div><p class="eyebrow">YOUR WORLD</p><h1>Messages</h1></div>
+            <button class="compose-button" id="registerButton" type="button" aria-label="Register a person">＋</button>
+          </div>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search name, email, city or country" autocomplete="off" />
+          </label>
+          <section class="stories" aria-label="People online">
+            <h2>Online now</h2>
+            <div class="story-list" id="storyList"></div>
+          </section>
+          <div class="conversation-heading"><h2>Conversations</h2><span>GLOBAL</span></div>
+          <nav class="conversation-list" id="conversationList" aria-label="Choose a conversation"></nav>
+          <p class="inbox-note">Search matches contacts saved on this device by name, email, or location. It can’t discover people nearby or search a worldwide directory.</p>
+        </aside>
+
+        <section class="chat-panel" id="chatPanel" aria-label="Conversation">
+          <header class="chat-header" id="chatHeader"></header>
+          <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+          <form class="message-form" id="messageForm">
+            <button class="attach-button" type="button" aria-label="Add an attachment">＋</button>
+            <label class="sr-only" for="messageInput">Write a message</label>
+            <input id="messageInput" name="message" type="text" maxlength="500" autocomplete="off" placeholder="Write a message…" required />
+            <button class="send-button" type="submit" aria-label="Send message"><span>Send</span><span aria-hidden="true">➤</span></button>
+          </form>
+          <p class="composer-hint">Messages are saved on this device; they aren’t delivered to other people. <span>Enter to send</span></p>
+        </section>
+      </section>
+      <dialog class="reels-dialog" id="reelsDialog" aria-label="World Reels">
+        <div class="reels-heading">
+          <div><p class="eyebrow">A LITTLE WINDOW TO EVERYWHERE</p><h2>World Reels</h2></div>
+          <div class="reels-controls">
+            <label class="reel-add-button" for="reelFile">＋ Add video</label>
+            <input class="sr-only" id="reelFile" type="file" accept="video/*" multiple />
+            <button class="reel-add-button" id="addInstagramReel" type="button">Instagram link</button>
+            <button class="dialog-close" id="closeReels" type="button" aria-label="Close reels">×</button>
+          </div>
+        </div>
+        <p class="reels-note">Add a public Instagram Reel link to preview it here. Instagram may restrict embedded playback; use Open on Instagram if it doesn’t load. This feed isn’t connected to Instagram’s recommendations or worldwide posts.</p>
+        <div class="reels-feed" id="reelsFeed" aria-label="Reels feed"></div>
+      </dialog>
+      <dialog class="register-dialog" id="registerDialog" aria-labelledby="registerTitle">
+        <form id="registerForm">
+          <div class="dialog-heading">
+            <div><p class="eyebrow">GROW YOUR WORLD</p><h2 id="registerTitle">Register a person</h2></div>
+            <button class="dialog-close" id="closeRegister" type="button" aria-label="Close">×</button>
+          </div>
+          <label for="personName">Full name</label>
+          <input id="personName" name="name" type="text" maxlength="60" autocomplete="name" required />
+          <label for="personPhone">Mobile phone</label>
+          <input id="personPhone" name="phone" type="tel" maxlength="30" autocomplete="tel" placeholder="Include country code, e.g. +254…" required />
+          <label for="personEmail">Email address <span>(optional)</span></label>
+          <input id="personEmail" name="email" type="email" maxlength="254" autocomplete="email" placeholder="name@example.com" />
+          <label for="personLocation">City and country <span>(optional)</span></label>
+          <input id="personLocation" name="location" type="text" maxlength="80" placeholder="e.g. Nairobi, Kenya" />
+          <p class="form-note">This saves a contact on this device; it won’t find or message users on other phones.</p>
+          <button class="register-submit" type="submit">Add to conversations</button>
+        </form>
+      </dialog>
+      <p class="sr-only" id="appStatus" role="status" aria-live="polite"></p>
+      <footer class="page-footer">Made for meaningful conversations, wherever you are.</footer>
+    </main>
+  </body>
+</html>
